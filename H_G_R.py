@@ -1,11 +1,17 @@
 import numpy as np
 import cv2
 import time
-import pyttsx3
 import os
 import webbrowser
 
-engine = pyttsx3.init()
+try:
+    import pyttsx3
+    engine = pyttsx3.init()
+    engine.say("text to speech test")
+    engine.runAndWait()
+except Exception as e:
+    print("Text to speech failed:",e)
+    engine=None
 cap = cv2.VideoCapture(0)# creating the videocapture object# and reading from the input file# Change it to 0 if reading from webcam # video capture 
 
 prev_frame_time = 0# used to record the time when we processed last frame
